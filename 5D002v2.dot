@@ -1,0 +1,52 @@
+digraph "加密" {
+    rankdir = LR
+	compound=true
+	margin="0,0"
+	nodesep = 1
+	pad = .5
+
+	node [shape=record, charset = "UTF-8"]
+
+	"5D002" [
+		label = "<a> 5D002.a |
+			<b> 5D002.b |
+			<c> 5D002.c "
+	]
+
+    "5D002.a" [
+        label = "<1> 5D002.a.1 |
+                 <2> 5D002.a.2 |
+                 <3> 5D002.a.3"
+    ]
+
+    "5D002.a.3" [
+        label = "<a> 5D002.a.3.a |
+                <b> 5D002.a.3.b"
+    ]
+
+    "5D002.a":3 ->  "5D002.a.3":w [arrowhead=none];
+
+    "5D002.c" [
+        label = "<1> 5D002.c.1 |
+                 <2> 5D002.c.2 |
+                 <3> 5D002.c.3"
+    ]
+
+    "5D002.c":3 -> "5D002.c.3" [arrowhead=none];
+
+    "5D002.c.3" [
+        label = "<a> 5D002.c.3.a |
+                <b> 5D002.c.3.b"
+    ]
+
+    "5D002":a -> "5D002.a" [label = "“development,” “production” or “use” of"];
+    "5D002":b -> "5A002.b" [label = "having the characteristics of"];
+    "5D002":c -> "5D002.c" [label = "having the characteristics of"];
+
+    "5D002.a":1 -> { "5A002" "5D002.c":1 } [arrowhead=none];
+    "5D002.a":2 -> { "5A003" "5D002.c":2 } [arrowhead=none];
+
+    "5D002.a.3":a -> { "5A004.a" "5D002.c.3":a }
+	"5D002.a.3":b -> { " 5A004.b" "5D002.c.3":b }
+
+}

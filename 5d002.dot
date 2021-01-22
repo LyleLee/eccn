@@ -1,0 +1,24 @@
+digraph "5D002"{
+	rankdir=LR;
+	"5D002" -> "5D002.a" [arrowhead=none];
+	"5D002" -> "5D002.b" [arrowhead=none];
+	"5D002" -> "5D002.c" [arrowhead=none];
+	"5D002.a" -> { "5D002.a.1" "5D002.a.2" "5D002.a.3"} [label = "“development,” “production” or “use” of"];
+	"5D002.a.1" -> { "5A002" "5D002.c.1" };
+	"5D002.a.2" -> { "5A003" "5D002.c.2" } ;
+	"5D002.a.3" -> { "5D002.a.3.a"  "5D002.a.3.b"};
+	"5D002.a.3.a" -> { "5A004.a" "5D002.c.3.a"}
+	"5D002.a.3.b" -> { " 5A004.b" "5D002.c.3.b"}
+	"5D002.b" -> " 5A002.b" [label = "having the characteristics of"];
+	"5D002.c" -> {"5D002.c.1" "5D002.c.2" "5D002.c.3"} [label = "having the characteristics of"];
+	"5D002.c.1" -> {"5A002.a" "5A002.c" "5A002.d" "5A002.e"} [arrowhead=none];
+	"5D002.c.2" -> {"5A003"} [arrowhead=none];
+	"5D002.c.3" -> { "5D002.c.3.a" "5D002.c.3.b"}  [arrowhead=none];
+	"5D002.c.3.a" -> "5A004.a" [arrowhead=none];
+	"5D002.c.3.b" -> "5A004.b" [arrowhead=none];
+	#{rank = same; "5D002.a"; "5D002.b" "5D002.c"};
+	#{rank = same; "5D002.c.1";"5D002.c.2";"5D002.c.3"}
+	#{rank = same; "5D002.c.3.a" "5D002.c.3.b"}
+	#{rank = same; "5A002" "5A003"}
+	#{rank = same; "5A002.a" "5A002.c" "5A002.d" "5A002.e" "5A004.a" "5A004.b"}
+}
